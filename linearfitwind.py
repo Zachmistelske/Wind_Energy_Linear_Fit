@@ -17,17 +17,11 @@ h.hist(bins=100, figsize=(15, 10))
 plt.show()
 
 c=h['Year']/h['Avg_Wind']
-u=h['Year']
+v=h['Year']
 r=h['Avg_Wind']
-t=r.astype(float)
-v=np.zeros(len(t))
-for i in range(len(t)):
-    v[i]=np.log(t[i])
+u=r.astype(float)
 q1=h['StdDev']
-q2=q1.astype(float)
-q=np.zeros(len(q1))
-for i in range(len(q1)):
-    q[i]=math.log(q2[i])
+q=q1.astype(float)
 # make a linear point plot of data set displaying errors to each y-value
 plt.scatter(u,v,color='green')
 plt.errorbar(u,v,q,color='green',fmt='o',label='data set')
@@ -79,8 +73,8 @@ print('uncertainty in a:',errora)
 print('uncertainty in b:',errorb)
 print('chi-squared:',chis)
 
-plt.xlabel('Year')
-plt.ylabel('Avg Wind Consumption')
+plt.xlabel('Avg Wind Consumption (kWh)')
+plt.ylabel('Year')
 plt.legend()
 plt.show()
 
